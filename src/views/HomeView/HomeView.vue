@@ -4,13 +4,11 @@ import SectionIntro from './components/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
 import SectionAbout from './components/SectionAbout.vue'
 
-import useGoogle from '@/lib/composables/google'
 import { useNav } from '@/stores/nav'
+import { useGoogle } from '@/stores/google'
 
 const storeNav = useNav()
-
-const { fetchAllSheets } = useGoogle()
-fetchAllSheets().then((res) => console.log(res))
+const storeGoogle = useGoogle()
 </script>
 
 <template>
