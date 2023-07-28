@@ -4,15 +4,15 @@ import { ref } from 'vue'
 export const useNav = defineStore('nav', () => {
   const sections = ref([
     {
-      text: '介紹',
+      text: '演出人員',
       hash: 'intro'
     },
     {
-      text: '曲目',
+      text: '曲目介紹',
       hash: 'repertoire'
     },
     {
-      text: '關於',
+      text: '關於我們',
       hash: 'about'
     }
   ])
