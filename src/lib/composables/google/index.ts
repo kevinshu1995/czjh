@@ -6,7 +6,15 @@ const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_KEY
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 const SPREADSHEET_ID = import.meta.env.VITE_GOOGLE_SPREADSHEET_ID
 const DISCOVERY_DOCS = ['https://sheets.googleapis.com/$discovery/rest?version=v4']
-const SHEET_NAMES: string[] = import.meta.env.VITE_SHEET_NAMES.split(',')
+
+const sheet = {
+  staff: '演出人員',
+  runDown: '流程',
+  specialIntro: '介紹',
+  instrument: '樂器'
+}
+
+const SHEET_NAMES: string[] = [sheet.staff, sheet.runDown, sheet.specialIntro, sheet.instrument]
 
 function useLoadGoogle() {
   const gapiLoadStates = reactive({
