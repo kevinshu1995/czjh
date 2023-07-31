@@ -6,7 +6,16 @@ import useGoogleComposable from '@/lib/composables/google'
 export const useGoogle = defineStore('google', () => {
   const { fetchAllSheets, sheet: sheetEnum } = useGoogleComposable()
 
-  const sheetsData = ref<any[] | null>(null)
+  const sheetsData = ref<{
+    staff: any[]
+    specialIntro: any[]
+    runDown: any[]
+    instruments: any[]
+  } | null>(null)
+
+  const staff = computed(() => sheetsData.value?.staff ?? [])
+  const specialIntro = computed(() => sheetsData.value?.specialIntro ?? [])
+  const runDown = computed(() => sheetsData.value?.runDown ?? [])
 
   onMounted(async () => {
     const { data, error } = await fetchAllSheets()
@@ -20,5 +29,5 @@ export const useGoogle = defineStore('google', () => {
     console.log({ data })
   })
 
-  return { fetchAllSheets }
+  return { fetchAllSheets, staff, specialIntro, runDown }
 })

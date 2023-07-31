@@ -14,14 +14,19 @@ const storeGoogle = useGoogle()
 <template>
   <BaseNavbar />
   <main>
-    <section :id="storeNav.getSection('intro').hash" class="py-96 border border-white">
-      <SectionIntro />
-    </section>
-    <section :id="storeNav.getSection('repertoire').hash" class="py-96 border border-white">
-      <SectionRepertoire />
-    </section>
-    <section :id="storeNav.getSection('about').hash" class="py-96 border border-white">
-      <SectionAbout />
-    </section>
+    <div class="container">
+      <section :id="storeNav.getSection('intro').hash" class="py-96 space-y-20">
+        <h2 class="text-center text-4xl font-bold">簡介</h2>
+        <SectionIntro />
+      </section>
+      <section :id="storeNav.getSection('repertoire').hash" class="py-96 space-y-20">
+        <h2 class="text-center text-4xl font-bold">演出曲目</h2>
+        <SectionRepertoire />
+      </section>
+      <section :id="storeNav.getSection('about').hash" class="py-96 space-y-20">
+        <h2 class="text-center text-4xl font-bold">關於我們</h2>
+        <SectionAbout />
+      </section>
+    </div>
   </main>
 </template>
