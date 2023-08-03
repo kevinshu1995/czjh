@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseNavbar from '@/components/BaseNavbar.vue'
-import SectionIntro from './components/SectionIntro.vue'
+import SectionIntro from './components/SectionIntro/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
 import SectionAbout from './components/SectionAbout.vue'
 

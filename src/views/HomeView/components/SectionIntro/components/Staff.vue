@@ -13,6 +13,7 @@ const helper = '*'
 
 <template>
   <!-- 演出人員 -->
+  <h3 class="text-4xl text-center font-bold">演出人員</h3>
   <div class="flex justify-center">
     <div class="space-y-12">
       <ul class="space-y-12">
