@@ -47,7 +47,10 @@ watch(
       <p class="text-sm text-gray-300">讀取中</p>
     </div>
   </div>
-  <main class="overflow-x-hidden">
+  <div class="fixed z-[-1] left-0 top-0 w-screen h-screen">
+    <img src="/background-sheet.jpg" class="object-cover h-full w-full opacity-5" alt="" />
+  </div>
+  <main class="overflow-x-hidden relative">
     <div class="mb-60">
       <img src="/cover.jpg" alt="" />
     </div>
