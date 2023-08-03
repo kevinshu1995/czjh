@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@types/aos": "^3.0.4",
     "@vueuse/core": "^10.2.1",
     "aos": "^2.3.4",
     "daisyui": "^3.5.0",

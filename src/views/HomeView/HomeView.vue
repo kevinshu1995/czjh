@@ -24,7 +24,6 @@ watch(
         AOS.init({
           once: true,
           duration: 300,
-          easing: 'ease-out-int',
           offset: 100
         })
       }, 100)
