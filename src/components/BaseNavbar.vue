@@ -36,12 +36,12 @@ watch(height, () => {
     <div class="navbar bg-base-100 bg-opacity-90">
       <div class="">
         <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
-          <div class="h-full py-2">
+          <div class="h-full py-2 w-16">
             <img src="/logo.svg" class="w-full h-full" alt="" />
           </div>
         </button>
       </div>
-      <div class="flex">
+      <div class="flex ml-auto">
         <ul class="menu menu-horizontal px-1 space-x-2">
           <li v-for="section in sections" :key="section.hash">
             <router-link :to="`/#${section.hash}`">
