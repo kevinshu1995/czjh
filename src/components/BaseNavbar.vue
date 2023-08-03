@@ -32,7 +32,7 @@ watch(height, () => {
 </script>
 
 <template>
-  <header class="sticky top-0" ref="elNav">
+  <header class="sticky top-0 z-[9999]" ref="elNav">
     <div class="navbar bg-base-100 bg-opacity-90">
       <div class="">
         <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
