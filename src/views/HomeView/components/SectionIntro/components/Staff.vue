@@ -15,7 +15,7 @@ const helper = '*'
   <!-- 演出人員 -->
   <div class="space-y-12">
     <ul class="space-y-12">
-      <li v-for="(group, i) in staff" :key="i" class="space-y-2">
+      <li v-for="(group, i) in staff" :key="i" class="space-y-2 border-l-4 border-white pl-4">
         <h3 class="text-3xl font-bold">{{ group[0]['樂器'] }}</h3>
         <ul class="flex flex-wrap">
           <li v-for="(person, i) in group" class="">

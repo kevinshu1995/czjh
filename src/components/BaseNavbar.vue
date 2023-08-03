@@ -33,7 +33,7 @@ watch(height, () => {
 
 <template>
   <header class="sticky top-0" ref="elNav">
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-100 bg-opacity-90">
       <div class="">
         <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
           <div class="h-full py-2">

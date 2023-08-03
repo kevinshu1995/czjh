@@ -19,9 +19,9 @@ const runDown = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="">
     <ul class="space-y-20">
-      <li v-for="item in runDown" :key="item.id" class="space-y-1">
+      <li v-for="item in runDown" :key="item.id" class="space-y-1 border-l-4 border-white pl-4">
         <span class="text-gray-400 text-2xl">{{ item.order || '' }}</span>
         <h3 class="text-3xl font-bold">
           {{ item['曲目/活動'] }}
