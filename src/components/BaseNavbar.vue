@@ -34,10 +34,14 @@ watch(height, () => {
 <template>
   <header class="sticky top-0" ref="elNav">
     <div class="navbar bg-base-100">
-      <div class="navbar-start">
-        <button class="btn btn-ghost normal-case text-xl" @click="onClickLogo">Logo</button>
+      <div class="">
+        <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
+          <div class="h-full py-2">
+            <img src="/logo.svg" class="w-full h-full" alt="" />
+          </div>
+        </button>
       </div>
-      <div class="navbar-end flex">
+      <div class="flex">
         <ul class="menu menu-horizontal px-1 space-x-2">
           <li v-for="section in sections" :key="section.hash">
             <router-link :to="`/#${section.hash}`">
