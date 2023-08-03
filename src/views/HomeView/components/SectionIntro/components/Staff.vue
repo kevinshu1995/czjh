@@ -15,7 +15,12 @@ const helper = '*'
   <!-- 演出人員 -->
   <div class="space-y-12">
     <ul class="space-y-12">
-      <li v-for="(group, i) in staff" :key="i" class="space-y-2 border-l-4 border-white pl-4">
+      <li
+        v-for="(group, i) in staff"
+        :key="i"
+        class="space-y-2 border-l-4 border-white pl-4"
+        data-aos="fade-left"
+      >
         <h3 class="text-3xl font-bold">{{ group[0]['樂器'] }}</h3>
         <ul class="flex flex-wrap">
           <li v-for="(person, i) in group" class="">
@@ -32,6 +37,6 @@ const helper = '*'
         </ul>
       </li>
     </ul>
-    <p>{{ helper }} 協演</p>
+    <p data-aos="fade-left">{{ helper }} 協演</p>
   </div>
 </template>
