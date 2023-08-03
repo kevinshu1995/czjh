@@ -51,38 +51,50 @@ function useLoadGoogle() {
     hasLoaded: false
   })
 
-  useScriptTag('https://apis.google.com/js/api.js', () => {
-    window.gapi.load('client', {
-      async callback() {
-        await window.gapi.client.init({
-          apiKey: API_KEY,
-          discoveryDocs: DISCOVERY_DOCS
-        })
-        gapiLoadStates.hasLoaded = true
-        gapiLoadStates.hasError = false
-      },
-      onerror() {
-        gapiLoadStates.hasLoaded = true
-        gapiLoadStates.hasError = true
-        console.error('gapi load error')
-      },
-      timeout: 5000,
-      ontimeout() {
-        gapiLoadStates.hasLoaded = true
-        gapiLoadStates.hasError = true
-        console.error('gapi load timeout')
-      }
-    })
-  })
+  useScriptTag(
+    'https://apis.google.com/js/api.js',
+    () => {
+      window.gapi.load('client', {
+        async callback() {
+          await window.gapi.client.init({
+            apiKey: API_KEY,
+            discoveryDocs: DISCOVERY_DOCS
+          })
+          gapiLoadStates.hasLoaded = true
+          gapiLoadStates.hasError = false
+        },
+        onerror() {
+          gapiLoadStates.hasLoaded = true
+          gapiLoadStates.hasError = true
+          console.error('gapi load error')
+        },
+        timeout: 5000,
+        ontimeout() {
+          gapiLoadStates.hasLoaded = true
+          gapiLoadStates.hasError = true
+          console.error('gapi load timeout')
+        }
+      })
+    },
+    {
+      defer: true
+    }
+  )
 
-  useScriptTag('https://accounts.google.com/gsi/client', () => {
-    window.google.accounts.oauth2.initTokenClient({
-      client_id: CLIENT_ID,
-      scope: SCOPES,
-      callback: () => {}
-    })
-    gisLoadStates.hasLoaded = true
-  })
+  useScriptTag(
+    'https://accounts.google.com/gsi/client',
+    () => {
+      window.google.accounts.oauth2.initTokenClient({
+        client_id: CLIENT_ID,
+        scope: SCOPES,
+        callback: () => {}
+      })
+      gisLoadStates.hasLoaded = true
+    },
+    {
+      defer: true
+    }
+  )
 
   function waitGoogleLoaded() {
     return new Promise((resolve, reject) => {

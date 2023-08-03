@@ -3,6 +3,7 @@ import BaseNavbar from '@/components/BaseNavbar.vue'
 import SectionIntro from './components/SectionIntro/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
 import SectionAbout from './components/SectionAbout.vue'
+import IconLogo from '/src/components/icon/IconLogo.vue'
 
 import { useNav } from '@/stores/nav'
 import { useGoogle } from '@/stores/google'
@@ -32,4 +33,14 @@ const storeGoogle = useGoogle()
       </section>
     </div>
   </main>
+  <footer>
+    <div class="container text-xs text-gray-400 py-8">
+      <div class="flex flex-col gap-2 justify-center items-center">
+        <p>© 2023 誠正國中校友管樂團</p>
+        <div class="max-w-[200px]">
+          <IconLogo class="w-full" />
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
