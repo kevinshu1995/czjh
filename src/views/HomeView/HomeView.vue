@@ -49,55 +49,57 @@ watch(
   <div class="fixed z-[-1] left-0 top-0 w-screen h-screen">
     <img src="/background-sheet.jpg" class="object-cover h-full w-full opacity-5" alt="" />
   </div>
-  <main class="overflow-x-hidden relative">
-    <div class="mb-60">
-      <img src="/cover.jpg" alt="" />
-    </div>
-    <div class="container space-y-60">
-      <section :id="storeNav.getSection('intro').hash" class="space-y-24">
-        <div>
-          <p
-            class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-            data-aos="fade-left"
-          >
-            Staff
-          </p>
-          <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-            演出人員
-          </h2>
-        </div>
-        <SectionIntro />
-      </section>
-      <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
-        <div>
-          <p
-            class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-            data-aos="fade-left"
-          >
-            Repertoire
-          </p>
-          <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-            演出曲目
-          </h2>
-        </div>
-        <SectionRepertoire />
-      </section>
-      <section :id="storeNav.getSection('about').hash" class="space-y-24">
-        <div>
-          <p
-            class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-            data-aos="fade-left"
-          >
-            About
-          </p>
-          <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-            關於我們
-          </h2>
-        </div>
-        <SectionAbout />
-      </section>
-    </div>
-  </main>
+  <div class="flex justify-center">
+    <main class="overflow-x-hidden relative max-w-md">
+      <div class="mb-60">
+        <img src="/cover.jpg" alt="" />
+      </div>
+      <div class="container space-y-60">
+        <section :id="storeNav.getSection('intro').hash" class="space-y-24">
+          <div>
+            <p
+              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
+              data-aos="fade-left"
+            >
+              Staff
+            </p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
+              演出人員
+            </h2>
+          </div>
+          <SectionIntro />
+        </section>
+        <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
+          <div>
+            <p
+              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
+              data-aos="fade-left"
+            >
+              Repertoire
+            </p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
+              演出曲目
+            </h2>
+          </div>
+          <SectionRepertoire />
+        </section>
+        <section :id="storeNav.getSection('about').hash" class="space-y-24">
+          <div>
+            <p
+              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
+              data-aos="fade-left"
+            >
+              About
+            </p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
+              關於我們
+            </h2>
+          </div>
+          <SectionAbout />
+        </section>
+      </div>
+    </main>
+  </div>
   <footer>
     <div class="container text-xs text-gray-400 py-8">
       <div class="flex flex-col gap-2 justify-center items-center">
