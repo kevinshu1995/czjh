@@ -166,7 +166,7 @@ export default function useGoogle() {
 
       formattedData.staff = formattedData.staff
         .map((person: SheetStaff): SheetStaffWithInstrument => {
-          const { group, id } = data.instrument.find(
+          const { group, id } = formattedData.instrument.find(
             (instrument: SheetInstrument) => instrument.instrument === person['樂器']
           )
 
