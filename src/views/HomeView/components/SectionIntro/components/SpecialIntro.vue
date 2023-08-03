@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useGoogle } from '@/stores/google'
 
 const storeGoogle = useGoogle()

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import IconFacebook from '/src/components/icon/IconFacebook.vue'
 import IconInstagram from '/src/components/icon/IconInstagram.vue'
 </script>
