@@ -7,7 +7,7 @@ const storeGoogle = useGoogle()
 <template>
   <div>
     <ul class="space-y-24">
-      <li v-for="intro in storeGoogle.specialIntro" class="space-y-4" data-aos="fade-left">
+      <li v-for="intro in storeGoogle.specialIntro" class="space-y-4">
         <div class="flex items-end space-x-4">
           <div class="shrink-0 w-28 h-28 overflow-hidden" v-if="intro['照片']">
             <img

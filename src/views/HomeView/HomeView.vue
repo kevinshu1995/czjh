@@ -5,33 +5,12 @@ import SectionIntro from './components/SectionIntro/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
 import SectionAbout from './components/SectionAbout.vue'
 import IconLogo from '/src/components/icon/IconLogo.vue'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 import { useNav } from '@/stores/nav'
 import { useGoogle } from '@/stores/google'
 
 const storeNav = useNav()
 const storeGoogle = useGoogle()
-
-watch(
-  () => storeGoogle.isFetching,
-  async (val) => {
-    let hasInit = false
-    if (val === false && hasInit === false) {
-      await nextTick()
-      setTimeout(() => {
-        AOS.init({
-          once: true,
-          duration: 300,
-          offset: 100
-        })
-      }, 100)
-      hasInit = true
-    }
-  },
-  { immediate: true }
-)
 </script>
 
 <template>
@@ -57,43 +36,22 @@ watch(
       <div class="container space-y-60">
         <section :id="storeNav.getSection('intro').hash" class="space-y-24">
           <div>
-            <p
-              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-              data-aos="fade-left"
-            >
-              Staff
-            </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-              演出人員
-            </h2>
+            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">Staff</p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出人員</h2>
           </div>
           <SectionIntro />
         </section>
         <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
           <div>
-            <p
-              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-              data-aos="fade-left"
-            >
-              Repertoire
-            </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-              演出曲目
-            </h2>
+            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">Repertoire</p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出曲目</h2>
           </div>
           <SectionRepertoire />
         </section>
         <section :id="storeNav.getSection('about').hash" class="space-y-24">
           <div>
-            <p
-              class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10"
-              data-aos="fade-left"
-            >
-              About
-            </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20" data-aos="fade-left">
-              關於我們
-            </h2>
+            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">About</p>
+            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">關於我們</h2>
           </div>
           <SectionAbout />
         </section>
