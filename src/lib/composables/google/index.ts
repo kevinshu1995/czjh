@@ -100,7 +100,7 @@ function useLoadGoogle() {
     return new Promise((resolve, reject) => {
       function wait(time = 0) {
         const eachCycleTime = 50
-        const timeout = 10000
+        const timeout = 5000
         if (time > timeout) {
           reject('google api load timeout')
         }
@@ -143,6 +143,25 @@ export default function useGoogle() {
     }
   }
 
+  async function batchGetSheets() {
+    try {
+      const isLoaded = await waitGoogleLoaded()
+      if (isLoaded === false) throw new Error('google api load failed')
+
+      const response = await gapi.client.sheets.spreadsheets.values.batchGet({
+        spreadsheetId: SPREADSHEET_ID,
+        ranges: SHEET_NAMES
+      })
+
+      return response
+    } catch (error) {
+      console.error('[batchGetSheets failed] using local json now. ', error)
+      const response = await fetch('/tempData.json')
+      const data = await response.json()
+      return data
+    }
+  }
+
   async function fetchAllSheets() {
     try {
       // check cache
@@ -156,15 +175,9 @@ export default function useGoogle() {
         }
       }
 
-      const isLoaded = await waitGoogleLoaded()
-      if (isLoaded === false) throw new Error('google api load failed')
-
       // fetch data
       console.info('[fetchAllSheets] use Fetch')
-      const response = await gapi.client.sheets.spreadsheets.values.batchGet({
-        spreadsheetId: SPREADSHEET_ID,
-        ranges: SHEET_NAMES
-      })
+      const response = await batchGetSheets()
 
       const formattedData = SHEET_NAMES.map((sheetName: string, index: number) => {
         return formatSheetData(sheetName, response?.result?.valueRanges?.[index]?.values || [])
