@@ -29,7 +29,7 @@ const storeGoogle = useGoogle()
     <img src="/background-sheet.jpg" class="object-cover h-full w-full opacity-5" alt="" />
   </div>
   <div class="flex justify-center">
-    <main class="overflow-x-hidden relative max-w-md">
+    <main class="overflow-x-visible relative max-w-lg">
       <div class="mb-60">
         <img src="/cover.jpg" alt="" />
       </div>

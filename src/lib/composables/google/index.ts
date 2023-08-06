@@ -29,6 +29,7 @@ interface SheetInstrument {
 }
 
 interface SheetStaffWithInstrument extends SheetStaff {
+  instrument: string
   instrumentGroup: number
   instrumentId: number
 }
@@ -191,12 +192,17 @@ export default function useGoogle() {
 
       formattedData.staff = formattedData.staff
         .map((person: SheetStaff): SheetStaffWithInstrument => {
-          const { group, id } = formattedData.instrument.find(
+          const {
+            group,
+            id,
+            樂器: instrument
+          } = formattedData.instrument.find(
             (instrument: SheetInstrument) => instrument.instrument === person['樂器']
           )
 
           return {
             ...person,
+            instrument,
             instrumentGroup: Number(group),
             instrumentId: Number(id)
           }
