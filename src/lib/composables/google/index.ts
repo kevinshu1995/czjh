@@ -154,6 +154,8 @@ export default function useGoogle() {
         ranges: SHEET_NAMES
       })
 
+      // console.log(response)
+
       return response
     } catch (error) {
       console.error('[batchGetSheets failed] using local json now. ', error)
