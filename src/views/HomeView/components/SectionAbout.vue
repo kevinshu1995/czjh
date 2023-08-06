@@ -11,12 +11,16 @@ import IconInstagram from '/src/components/icon/IconInstagram.vue'
     <div class="w-2/3">
       <img src="/CZJH-logo_rectangle-logo-light.svg" alt="" />
     </div>
-    <div>
-      <p>十年歲月的琢磨、精進、執著，追尋到的是那種努力過後得來的甘甜！</p>
-      <p>無論未來會遇到什麼樣的困難，誠正校友管樂團永遠是你的家。</p>
-      <p>這裡有許多厲害的人，這裡有許多溫暖的人，</p>
-      <p>希望未來的日子，都能一起走下去！</p>
-      <p></p>
+    <div class="space-y-4">
+      <p>
+        誠正國中校友管樂團至今已成立十餘年。於2010年，創團人陳權號召眾多曾在誠正管樂中奏響過青春樂章的校友以及在校生們，共同在每年夏季參與演出。
+      </p>
+      <p>
+        於是，每年的七、八月，誠正國中團練室裡，多了一群長得不像國中生的高中生、大學生以及社會人士，用他們僅有的時間揮灑汗水、淚水以及口水，為的就是譜出這場夏日盛宴。
+      </p>
+      <p>
+        十年流轉，團員屆數甚差二十屆次，但透過音樂的力量，讓年紀的距離在彼此的心中淡化。他們透過自由奔放的音符，在樂聲中編織出校友與學弟妹之間的共鳴，消除了跨世代交流的阻礙，讓每個樂曲添加了動人的色彩。
+      </p>
     </div>
     <div class="flex flex-col border-l border-white pl-4 text-lg space-y-2">
       <a class="gap-2" target="_blank" href="https://instagram.com/czjhawb/">
