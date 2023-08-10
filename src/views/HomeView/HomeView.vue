@@ -36,21 +36,27 @@ const storeGoogle = useGoogle()
       <div class="container space-y-60">
         <section :id="storeNav.getSection('intro').hash" class="space-y-24">
           <div>
-            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">Staff</p>
+            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+              Staff
+            </p>
             <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出人員</h2>
           </div>
           <SectionIntro />
         </section>
         <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
           <div>
-            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">Repertoire</p>
+            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+              Repertoire
+            </p>
             <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出曲目</h2>
           </div>
           <SectionRepertoire />
         </section>
         <section :id="storeNav.getSection('about').hash" class="space-y-24">
           <div>
-            <p class="text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">About</p>
+            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+              About
+            </p>
             <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">關於我們</h2>
           </div>
           <SectionAbout />
