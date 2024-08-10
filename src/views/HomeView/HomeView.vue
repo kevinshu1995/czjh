@@ -25,34 +25,65 @@ const storeGoogle = useGoogle()
       <p class="text-sm text-gray-300">讀取中</p>
     </div>
   </div>
-  <div class="fixed z-[-1] left-0 top-0 w-screen h-screen">
+  <div
+    :class="[
+      'fixed z-[-1] left-0 top-0 w-screen h-screen',
+      !storeGoogle.isFetching && 'animate-[blurIn_1.5s_ease-in]'
+    ]"
+  >
     <img src="/background-sheet.jpg" class="object-cover h-full w-full opacity-5" alt="" />
   </div>
-  <div class="flex justify-center overflow-x-hidden">
+  <div
+    :class="[
+      'flex justify-center overflow-x-hidden',
+      !storeGoogle.isFetching && 'animate-[blurIn_1.5s_ease-in]'
+    ]"
+  >
     <main class="relative max-w-lg">
       <div class="relative">
-        <div class="container my-40 px-4 flex flex-nowrap gap-2 relative">
-          <div class="w-[22.6%]">
+        <div
+          :class="[
+            'container my-40 px-4 flex flex-nowrap gap-2 relative',
+            storeGoogle.isFetching || 'animate-[SmallFadeIn_1s_ease-out]'
+          ]"
+        >
+          <div class="w-[22.6%] animate-[float_3s_0.2s_infinite]">
             <img class="aspect-[274/800]" src="/landing-images/main_head_title-1.png" alt="1" />
           </div>
-          <div class="w-[33%]">
+          <div class="w-[33%] animate-[float_3s_0.5s_infinite]">
             <img class="aspect-[400/800]" src="/landing-images/main_head_title-2.png" alt="2" />
           </div>
-          <div class="w-[44.3%]">
+          <div class="w-[44.3%] animate-[float_3s_0.3s_infinite]">
             <img class="aspect-[536/800]" src="/landing-images/main_head_title-3.png" alt="輯" />
           </div>
-          <div class="absolute left-0 bottom-6 w-[43%] ml-[60px]">
+          <div class="absolute left-0 bottom-6 w-[43%] ml-[60px] animate-[float_3s_infinite]">
             <img src="/landing-images/web-demo_subtitle.svg" alt="" />
           </div>
         </div>
-        <div class="absolute right-0 top-0 w-[300px] translate-x-1/4 -translate-y-full">
-          <img class="" src="/landing-images/web-demo_circle-4.svg" alt="" />
+        <div :class="['absolute right-0 top-0 w-[300px] translate-x-1/4 -translate-y-full']">
+          <img
+            :class="[storeGoogle.isFetching || 'animate-[HugeFadeIn_1s_ease-out]']"
+            src="/landing-images/web-demo_circle-4.svg"
+            alt=""
+          />
         </div>
-        <div class="absolute -right-28 top-1/2 w-[100px] -translate-y-1/2">
-          <img class="" src="/landing-images/web-demo_circle-3.svg" alt="" />
+        <div :class="['absolute -right-28 top-1/2 w-[100px] -translate-y-1/2']">
+          <img
+            :class="[storeGoogle.isFetching || 'animate-[HugeFadeIn_1s_ease-out]']"
+            src="/landing-images/web-demo_circle-3.svg"
+            alt=""
+          />
         </div>
-        <div class="absolute -left-12 bottom-0 w-[300px] -translate-x-3/4 translate-y-3/4">
-          <img class="" src="/landing-images/web-demo_circle-1.svg" alt="" />
+        <div
+          :class="[
+            'absolute -left-12 bottom-0 w-[300px] transition duration-500 ease-out translate-y-3/4 !-translate-x-3/4'
+          ]"
+        >
+          <img
+            :class="[storeGoogle.isFetching || 'animate-[HugeFadeIn_1s_ease-out]']"
+            src="/landing-images/web-demo_circle-1.svg"
+            alt=""
+          />
         </div>
       </div>
       <div class="container max-w-[100vw] space-y-60">
