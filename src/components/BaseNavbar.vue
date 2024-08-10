@@ -37,7 +37,7 @@ watch(height, () => {
       <div class="">
         <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
           <div class="h-full py-2 w-[30px]">
-            <img src="/logo.svg" class="w-full h-full" alt="" />
+            <img src="/logo.svg" class="w-full h-full" alt="CZJHAWB Logo" />
           </div>
         </button>
       </div>

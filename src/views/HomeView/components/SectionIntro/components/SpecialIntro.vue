@@ -21,12 +21,12 @@ const storeGoogle = useGoogle()
               <p class="font-thin">{{ intro['職稱'] }}</p>
               <h3 class="font-bold text-4xl">{{ intro['姓名'] }}</h3>
             </div>
-            <p class="italic text-gray-300 text-sm" v-if="intro.quote">
+            <p class="italic text-gray-400 text-sm" v-if="intro.quote">
               {{ intro.quote }}
             </p>
           </div>
         </div>
-        <div class="space-y-4 text-gray-200">
+        <div class="space-y-4 text-gray-800">
           <p v-for="p in intro['介紹']">{{ p }}</p>
           <div v-if="intro['姓名'] === '駱繹'" class="space-y-4">
             <span class="italic block"

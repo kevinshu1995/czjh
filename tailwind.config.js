@@ -5,10 +5,14 @@ module.exports = {
       padding: '1rem',
       center: true
     },
-    extend: {}
+    extend: {
+      colors: {
+        yellow11: '#e8b34d'
+      }
+    }
   },
   daisyui: {
-    themes: ['dracula']
+    themes: ['light']
   },
   plugins: [require('daisyui')]
 }

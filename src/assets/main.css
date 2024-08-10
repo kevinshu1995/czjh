@@ -9,3 +9,24 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 }
+
+.marquee-container {
+  @apply w-full;
+}
+
+.marquee-content {
+  @apply inline-block;
+  white-space: nowrap;
+  animation: marquee 8s linear infinite forwards;
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}

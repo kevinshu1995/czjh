@@ -15,7 +15,7 @@ const helper = '*'
   <!-- 演出人員 -->
   <div class="space-y-12">
     <ul class="space-y-12">
-      <li v-for="(group, i) in staff" :key="i" class="space-y-2 border-l-4 border-white pl-4">
+      <li v-for="(group, i) in staff" :key="i" class="space-y-2 border-l-4 border-yellow11 pl-4">
         <div class="space-y-0">
           <h3 class="text-3xl font-bold">{{ group[0].instrument }}</h3>
           <p class="text-gray-400">{{ group[0]['樂器'] }}</p>
@@ -27,7 +27,7 @@ const helper = '*'
               <span>
                 {{ person['名稱'] }}
               </span>
-              <span class="text-gray-300 text-xs">
+              <span class="text-gray-400 text-xs">
                 {{ person['屆數'] === 0 ? helper : person['屆數'] }}
               </span>
             </div>

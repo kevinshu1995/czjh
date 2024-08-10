@@ -4,7 +4,7 @@ import IconInstagram from '/src/components/icon/IconInstagram.vue'
 </script>
 
 <template>
-  <div class="pb-24 space-y-8 text-gray-200">
+  <div class="pb-24 space-y-8 text-gray-800">
     <div>
       <img src="/people.jpg" class="w-full" alt="" />
     </div>
@@ -22,7 +22,7 @@ import IconInstagram from '/src/components/icon/IconInstagram.vue'
         十年流轉，團員屆數甚差二十屆次，但透過音樂的力量，讓年紀的距離在彼此的心中淡化。他們透過自由奔放的音符，在樂聲中編織出校友與學弟妹之間的共鳴，消除了跨世代交流的阻礙，讓每個樂曲添加了動人的色彩。
       </p>
     </div>
-    <div class="flex flex-col border-l border-white pl-4 text-lg space-y-2">
+    <div class="flex flex-col border-l border-yellow11 pl-4 text-lg space-y-2">
       <a class="gap-2" target="_blank" href="https://instagram.com/czjhawb/">
         <div class="flex gap-2">
           <IconInstagram width="30" height="30" />

@@ -18,7 +18,7 @@ const storeGoogle = useGoogle()
   <!-- loading -->
   <div
     v-show="storeGoogle.isFetching"
-    class="fixed left-0 top-0 w-screen h-screen flex justify-center items-center bg-gray-900 bg-opacity-80 backdrop-blur z-50"
+    class="fixed left-0 top-0 w-screen h-screen flex justify-center items-center bg-white bg-opacity-80 backdrop-blur z-50"
   >
     <div>
       <span class="loading loading-ring loading-lg"></span>
@@ -28,36 +28,64 @@ const storeGoogle = useGoogle()
   <div class="fixed z-[-1] left-0 top-0 w-screen h-screen">
     <img src="/background-sheet.jpg" class="object-cover h-full w-full opacity-5" alt="" />
   </div>
-  <div class="flex justify-center">
-    <main class="overflow-x-hidden relative max-w-lg">
-      <div class="mb-60">
-        <img src="/cover.jpg" alt="" />
+  <div class="flex justify-center overflow-x-hidden">
+    <main class="relative max-w-lg">
+      <div class="relative">
+        <div class="container my-40 px-4 flex flex-nowrap gap-2 relative">
+          <div class="w-[22.6%]">
+            <img class="aspect-[274/800]" src="/landing-images/main_head_title-1.png" alt="1" />
+          </div>
+          <div class="w-[33%]">
+            <img class="aspect-[400/800]" src="/landing-images/main_head_title-2.png" alt="2" />
+          </div>
+          <div class="w-[44.3%]">
+            <img class="aspect-[536/800]" src="/landing-images/main_head_title-3.png" alt="輯" />
+          </div>
+          <div class="absolute left-0 bottom-6 w-[43%] ml-[60px]">
+            <img src="/landing-images/web-demo_subtitle.svg" alt="" />
+          </div>
+        </div>
+        <div class="absolute right-0 top-0 w-[300px] translate-x-1/4 -translate-y-full">
+          <img class="" src="/landing-images/web-demo_circle-4.svg" alt="" />
+        </div>
+        <div class="absolute -right-28 top-1/2 w-[100px] -translate-y-1/2">
+          <img class="" src="/landing-images/web-demo_circle-3.svg" alt="" />
+        </div>
+        <div class="absolute -left-12 bottom-0 w-[300px] -translate-x-3/4 translate-y-3/4">
+          <img class="" src="/landing-images/web-demo_circle-1.svg" alt="" />
+        </div>
       </div>
-      <div class="container space-y-60">
+      <div class="container max-w-[100vw] space-y-60">
         <section :id="storeNav.getSection('intro').hash" class="space-y-24">
-          <div>
-            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+          <div class="marquee-container">
+            <p
+              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
+            >
               Staff
             </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出人員</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">演出人員</h2>
           </div>
           <SectionIntro />
         </section>
         <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
-          <div>
-            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+          <div class="marquee-container">
+            <p
+              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
+            >
               Repertoire
             </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">演出曲目</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">演出曲目</h2>
           </div>
           <SectionRepertoire />
         </section>
         <section :id="storeNav.getSection('about').hash" class="space-y-24">
-          <div>
-            <p class="opacity-70 text-9xl text-gray-700 font-bold relative top-8 -left-4 z-10">
+          <div class="marquee-container">
+            <p
+              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
+            >
               About
             </p>
-            <h2 class="text-7xl font-bold italic text-gray-300 relative z-20">關於我們</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">關於我們</h2>
           </div>
           <SectionAbout />
         </section>
