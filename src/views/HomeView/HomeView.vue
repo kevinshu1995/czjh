@@ -39,7 +39,7 @@ const storeGoogle = useGoogle()
       !storeGoogle.isFetching && 'animate-[blurIn_1.5s_ease-in]'
     ]"
   >
-    <main class="relative max-w-lg">
+    <main class="relative max-w-lg space-y-60">
       <div class="relative">
         <div
           :class="[
@@ -86,7 +86,7 @@ const storeGoogle = useGoogle()
           />
         </div>
       </div>
-      <div class="container max-w-[100vw] space-y-60">
+      <div class="container max-w-[100vw] space-y-40">
         <section :id="storeNav.getSection('intro').hash" class="space-y-24">
           <div class="marquee-container">
             <p
