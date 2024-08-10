@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
-import { useElementSize } from '@vueuse/core'
+import { useElementSize, useWindowScroll } from '@vueuse/core'
 import { useRouter } from 'vue-router'
 import { useNav } from '@/stores/nav'
 
@@ -8,6 +8,7 @@ const router = useRouter()
 const storeNav = useNav()
 const sections = computed(() => storeNav.sections)
 const elNav = ref(null)
+const { y } = useWindowScroll()
 
 const { height } = useElementSize(elNav)
 
@@ -32,8 +33,13 @@ watch(height, () => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-[9999]" ref="elNav">
-    <div class="navbar bg-base-100 bg-opacity-90">
+  <header class="fixed left-0 w-full top-0 z-[9999]" ref="elNav">
+    <div
+      :class="[
+        'navbar bg-base-100 transition-all duration-500',
+        y > 400 ? 'bg-opacity-90 shadow-lg' : 'bg-opacity-0'
+      ]"
+    >
       <div class="">
         <button class="btn btn-ghost normal-case text-xl px-2" @click="onClickLogo">
           <div class="h-full py-2 w-[30px]">
