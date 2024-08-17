@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import BaseNavbar from '@/components/BaseNavbar.vue'
 import SectionIntro from './components/SectionIntro/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
@@ -29,32 +29,45 @@ const elSection3 = ref(null)
 const elTitle301 = ref(null)
 const elTitle302 = ref(null)
 
-function scrollAnimation(targets: { el: Ref; from: {}; to: {} }[], targetWrap: Ref) {
+async function scrollAnimation(targets: { el: Ref; from: {}; to: {} }[], targetWrap: Ref) {
   if (!targets.every((target) => target.el.value) || !targetWrap.value) return
-  const tx = gsap.timeline({
-    defaults: { duration: 100, ease: 'in' },
+
+  const tl = gsap.timeline({
+    defaults: { ease: 'in' },
     scrollTrigger: {
       trigger: targetWrap.value,
       scrub: true,
       start: 'top-=300 top',
-      end: '+=200',
+      end: '+=100%',
       pin: true,
       markers: true
     }
   })
 
   targets.forEach((target) => {
-    gsap.set(target.el.value, target.from)
-    tx.to(target.el.value, target.to)
+    tl.from(target.el.value, target.from).to(target.el.value, target.to)
   })
+
+  await nextTick()
+  setTimeout(() => {
+    tl.scrollTrigger && tl.scrollTrigger.refresh()
+  }, 0)
 }
 
 watch([elTitle101, elTitle102, elSection1, () => storeGoogle.isFetching], () => {
   if (storeGoogle.isFetching === true) return
   scrollAnimation(
     [
-      { el: elTitle101, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
-      { el: elTitle102, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+      {
+        el: elTitle101,
+        from: { xPercent: -105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      },
+      {
+        el: elTitle102,
+        from: { xPercent: 105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      }
     ],
     elSection1
   )
@@ -63,8 +76,16 @@ watch([elTitle201, elTitle202, elSection2, () => storeGoogle.isFetching], () => 
   if (storeGoogle.isFetching === true) return
   scrollAnimation(
     [
-      { el: elTitle201, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
-      { el: elTitle202, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+      {
+        el: elTitle201,
+        from: { xPercent: -105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      },
+      {
+        el: elTitle202,
+        from: { xPercent: 105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      }
     ],
     elSection2
   )
@@ -73,8 +94,16 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
   if (storeGoogle.isFetching === true) return
   scrollAnimation(
     [
-      { el: elTitle301, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
-      { el: elTitle302, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+      {
+        el: elTitle301,
+        from: { xPercent: -105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      },
+      {
+        el: elTitle302,
+        from: { xPercent: 105, autoAlpha: 0, scale: 0 },
+        to: { xPercent: 0, autoAlpha: 1, scale: 1 }
+      }
     ],
     elSection3
   )
@@ -155,9 +184,9 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
         </div>
       </div>
       <div class="container max-w-[100vw]">
-        <section :id="storeNav.getSection('intro').hash" class="space-y-24 py-16" ref="elSection1">
+        <section :id="storeNav.getSection('intro').hash" class="space-y-72 py-16" ref="elSection1">
           <div>
-            <p class="opacity-70 text-9xl text-yellow11 font-bold relative z-10">
+            <p class="opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10">
               <span class="inline-block" ref="elTitle101"> Staff </span>
             </p>
             <h2 class="text-7xl font-bold italic text-yellow11 relative z-20" ref="elTitle102">
@@ -168,7 +197,7 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
         </section>
         <section
           :id="storeNav.getSection('repertoire').hash"
-          class="space-y-24 py-16"
+          class="space-y-72 py-16"
           ref="elSection2"
         >
           <div>
@@ -181,7 +210,7 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
           </div>
           <SectionRepertoire />
         </section>
-        <section :id="storeNav.getSection('about').hash" class="space-y-24 py-16" ref="elSection3">
+        <section :id="storeNav.getSection('about').hash" class="space-y-72 py-16" ref="elSection3">
           <div>
             <p class="opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10">
               <span class="inline-block" ref="elTitle301"> About </span>
