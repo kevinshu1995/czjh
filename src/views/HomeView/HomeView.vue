@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { watch, nextTick } from 'vue'
+import type { Ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import BaseNavbar from '@/components/BaseNavbar.vue'
 import SectionIntro from './components/SectionIntro/SectionIntro.vue'
 import SectionRepertoire from './components/SectionRepertoire.vue'
@@ -9,8 +10,75 @@ import IconLogo from '/src/components/icon/IconLogo.vue'
 import { useNav } from '@/stores/nav'
 import { useGoogle } from '@/stores/google'
 
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
 const storeNav = useNav()
 const storeGoogle = useGoogle()
+
+const elSection1 = ref(null)
+const elTitle101 = ref(null)
+const elTitle102 = ref(null)
+
+const elSection2 = ref(null)
+const elTitle201 = ref(null)
+const elTitle202 = ref(null)
+
+const elSection3 = ref(null)
+const elTitle301 = ref(null)
+const elTitle302 = ref(null)
+
+function scrollAnimation(targets: { el: Ref; from: {}; to: {} }[], targetWrap: Ref) {
+  if (!targets.every((target) => target.el.value) || !targetWrap.value) return
+  const tx = gsap.timeline({
+    defaults: { duration: 100, ease: 'in' },
+    scrollTrigger: {
+      trigger: targetWrap.value,
+      scrub: true,
+      start: 'top-=300 top',
+      end: '+=200',
+      pin: true,
+      markers: true
+    }
+  })
+
+  targets.forEach((target) => {
+    gsap.set(target.el.value, target.from)
+    tx.to(target.el.value, target.to)
+  })
+}
+
+watch([elTitle101, elTitle102, elSection1, () => storeGoogle.isFetching], () => {
+  if (storeGoogle.isFetching === true) return
+  scrollAnimation(
+    [
+      { el: elTitle101, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
+      { el: elTitle102, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+    ],
+    elSection1
+  )
+})
+watch([elTitle201, elTitle202, elSection2, () => storeGoogle.isFetching], () => {
+  if (storeGoogle.isFetching === true) return
+  scrollAnimation(
+    [
+      { el: elTitle201, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
+      { el: elTitle202, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+    ],
+    elSection2
+  )
+})
+watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => {
+  if (storeGoogle.isFetching === true) return
+  scrollAnimation(
+    [
+      { el: elTitle301, from: { xPercent: -105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } },
+      { el: elTitle302, from: { xPercent: 105, autoAlpha: 0 }, to: { xPercent: 0, autoAlpha: 1 } }
+    ],
+    elSection3
+  )
+})
 </script>
 
 <template>
@@ -43,7 +111,7 @@ const storeGoogle = useGoogle()
       <div class="relative">
         <div
           :class="[
-            'container my-40 px-4 flex flex-nowrap gap-2 relative',
+            'container my-72 px-4 flex flex-nowrap gap-2 relative',
             storeGoogle.isFetching || 'animate-[SmallFadeIn_1s_ease-out]'
           ]"
         >
@@ -76,7 +144,7 @@ const storeGoogle = useGoogle()
         </div>
         <div
           :class="[
-            'absolute -left-12 bottom-0 w-[300px] transition duration-500 ease-out translate-y-3/4 !-translate-x-3/4'
+            'absolute -left-12 bottom-0 w-[300px] transition duration-500 ease-out translate-y-full !-translate-x-1/2'
           ]"
         >
           <img
@@ -86,37 +154,41 @@ const storeGoogle = useGoogle()
           />
         </div>
       </div>
-      <div class="container max-w-[100vw] space-y-40">
-        <section :id="storeNav.getSection('intro').hash" class="space-y-24">
-          <div class="marquee-container">
-            <p
-              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
-            >
-              Staff
+      <div class="container max-w-[100vw]">
+        <section :id="storeNav.getSection('intro').hash" class="space-y-24 py-16" ref="elSection1">
+          <div>
+            <p class="opacity-70 text-9xl text-yellow11 font-bold relative z-10">
+              <span class="inline-block" ref="elTitle101"> Staff </span>
             </p>
-            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">演出人員</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20" ref="elTitle102">
+              演出人員
+            </h2>
           </div>
           <SectionIntro />
         </section>
-        <section :id="storeNav.getSection('repertoire').hash" class="space-y-24">
-          <div class="marquee-container">
-            <p
-              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
-            >
-              Repertoire
+        <section
+          :id="storeNav.getSection('repertoire').hash"
+          class="space-y-24 py-16"
+          ref="elSection2"
+        >
+          <div>
+            <p class="opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10">
+              <span class="inline-block" ref="elTitle201">Repertoire</span>
             </p>
-            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">演出曲目</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20" ref="elTitle202">
+              演出曲目
+            </h2>
           </div>
           <SectionRepertoire />
         </section>
-        <section :id="storeNav.getSection('about').hash" class="space-y-24">
-          <div class="marquee-container">
-            <p
-              class="marquee-content opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10"
-            >
-              About
+        <section :id="storeNav.getSection('about').hash" class="space-y-24 py-16" ref="elSection3">
+          <div>
+            <p class="opacity-70 text-9xl text-yellow11 font-bold relative top-8 z-10">
+              <span class="inline-block" ref="elTitle301"> About </span>
             </p>
-            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20">關於我們</h2>
+            <h2 class="text-7xl font-bold italic text-yellow11 relative z-20" ref="elTitle302">
+              關於我們
+            </h2>
           </div>
           <SectionAbout />
         </section>
