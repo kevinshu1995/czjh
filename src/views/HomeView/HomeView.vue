@@ -39,8 +39,8 @@ async function scrollAnimation(targets: { el: Ref; from: {}; to: {} }[], targetW
       scrub: true,
       start: 'top-=300 top',
       end: '+=100%',
-      pin: true,
-      markers: true
+      pin: true
+      // markers: true
     }
   })
 
