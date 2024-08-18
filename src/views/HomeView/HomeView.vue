@@ -108,6 +108,18 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
     elSection3
   )
 })
+
+watch(
+  () => storeGoogle.isFetching,
+  (isFetching) => {
+    if (isFetching) {
+      document.body.classList.add('overflow-y-hidden')
+      return
+    }
+    document.body.classList.remove('overflow-y-hidden')
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -115,11 +127,11 @@ watch([elTitle301, elTitle302, elSection3, () => storeGoogle.isFetching], () => 
   <!-- loading -->
   <div
     v-show="storeGoogle.isFetching"
-    class="fixed left-0 top-0 w-screen h-screen flex justify-center items-center bg-white bg-opacity-80 backdrop-blur z-50"
+    class="fixed left-0 top-0 w-screen h-screen flex justify-center items-center bg-yellow11 bg-opacity-80 backdrop-blur z-50"
   >
-    <div>
+    <div class="text-white">
       <span class="loading loading-ring loading-lg"></span>
-      <p class="text-sm text-gray-300">讀取中</p>
+      <p class="text-sm">讀取中</p>
     </div>
   </div>
   <div
