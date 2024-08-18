@@ -35,6 +35,9 @@ const helper = '*'
         </ul>
       </li>
     </ul>
-    <p>{{ helper }} 協演</p>
+    <ul class="space-y-2 text-gray-500 italic">
+      <li>{{ helper }} 協演</li>
+      <li>依照屆數與姓名筆畫排序</li>
+    </ul>
   </div>
 </template>
