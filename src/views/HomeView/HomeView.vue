@@ -205,7 +205,9 @@ watch(
               演出人員
             </h2>
           </div>
-          <SectionIntro />
+          <div class="space-y-24">
+            <SectionIntro />
+          </div>
         </section>
         <section
           :id="storeNav.getSection('repertoire').hash"
