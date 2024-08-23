@@ -239,7 +239,7 @@ watch(
   <footer>
     <div class="container text-xs text-gray-400 py-8">
       <div class="flex flex-col gap-2 justify-center items-center">
-        <p>© 2023 誠正國中校友管樂團</p>
+        <p>© 2024 誠正國中校友管樂團</p>
         <div class="max-w-[200px]">
           <IconLogo class="w-full" />
         </div>
