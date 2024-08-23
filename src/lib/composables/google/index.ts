@@ -260,7 +260,10 @@ export default function useGoogle() {
     if (sheetName === sheet.runDown) {
       sheetData.table = sheetData.table
         .filter((item) => item['公開活動'] === 'TRUE')
-        .sort((a, b) => a['順序'] - b['順序'])
+        .map((row) => {
+          row.description = row['說明']?.split('\n') || []
+          return row
+        })
     }
 
     if (sheetName === sheet.specialIntro) {
