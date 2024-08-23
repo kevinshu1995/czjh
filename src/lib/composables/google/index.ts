@@ -12,6 +12,7 @@ type SheetName = {
   runDown: string
   specialIntro: string
   instrument: string
+  others: string
 }
 
 interface SheetStaff {
@@ -38,10 +39,17 @@ const sheet: SheetName = {
   staff: '演出人員',
   runDown: '流程',
   specialIntro: '介紹',
-  instrument: '樂器'
+  instrument: '樂器',
+  others: '其他'
 }
 
-const SHEET_NAMES: string[] = [sheet.staff, sheet.runDown, sheet.specialIntro, sheet.instrument]
+const SHEET_NAMES: string[] = [
+  sheet.staff,
+  sheet.runDown,
+  sheet.specialIntro,
+  sheet.instrument,
+  sheet.others
+]
 
 function useLoadGoogle() {
   const gapiLoadStates = reactive({
@@ -279,6 +287,15 @@ export default function useGoogle() {
       sheetData.table = sheetData.table.sort((a, b) => {
         if (a['group'] === b['group']) return a.id - b.id
         return a['group'] - b['group']
+      })
+    }
+
+    if (sheetName === sheet.others) {
+      sheetData.table = sheetData.table.map((row) => {
+        if (row['項目'] === '樂團介紹') {
+          row['內容'] = row['內容']?.split('\n') || []
+        }
+        return row
       })
     }
 

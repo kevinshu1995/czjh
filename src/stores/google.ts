@@ -13,11 +13,13 @@ export const useGoogle = defineStore('google', () => {
     specialIntro: any[]
     runDown: any[]
     instruments: any[]
+    others: any[]
   } | null>(null)
 
   const staff = computed(() => sheetsData.value?.staff ?? [])
   const specialIntro = computed(() => sheetsData.value?.specialIntro ?? [])
   const runDown = computed(() => sheetsData.value?.runDown ?? [])
+  const others = computed(() => sheetsData.value?.others ?? [])
 
   onMounted(async () => {
     isFetching.value = true
@@ -33,5 +35,5 @@ export const useGoogle = defineStore('google', () => {
     console.log({ data })
   })
 
-  return { fetchAllSheets, isFetching, staff, specialIntro, runDown }
+  return { fetchAllSheets, isFetching, staff, specialIntro, runDown, others }
 })
