@@ -24,19 +24,25 @@ const bandDescription = computed(() => {
         {{ p }}
       </p>
     </div>
-    <div class="flex flex-col border-l border-yellow11 pl-4 text-lg space-y-2">
-      <a class="gap-2" target="_blank" href="https://instagram.com/czjhawb/">
-        <div class="flex gap-2">
-          <IconInstagram width="30" height="30" />
-          <span>@czjhawb</span>
-        </div>
-      </a>
 
-      <a class="gap-2" target="_blank" href="https://www.facebook.com/CZWindBand">
-        <div class="flex gap-2">
-          <IconFacebook width="30" height="30" />
-          <span>誠正國中校友管樂團</span>
-        </div>
+    <hr />
+
+    <div class="flex flex-col gap-4">
+      <a
+        class="btn bg-yellow11/40 hover:bg-yellow11/20 border-none"
+        target="_blank"
+        href="https://instagram.com/czjhawb/"
+      >
+        <IconInstagram width="30" height="30" />
+        <span>@czjhawb</span>
+      </a>
+      <a
+        class="btn bg-yellow11/40 hover:bg-yellow11/20 border-none"
+        target="_blank"
+        href="https://www.facebook.com/CZWindBand"
+      >
+        <IconFacebook width="30" height="30" />
+        <span>誠正國中校友管樂團</span>
       </a>
     </div>
   </div>
